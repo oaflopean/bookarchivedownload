@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Book Archive Text Download</string>
+    <string name="text">Text</string>
+    <string name="epub">EPub</string>
+</resources>
