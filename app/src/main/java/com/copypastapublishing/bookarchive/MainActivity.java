@@ -7,10 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -53,9 +56,20 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         developersLists = new ArrayList<>();
         //calling the loadUrl method
-        ImageButton searchButton = (ImageButton) findViewById(R.id.searchbutton);
+        final ImageButton searchButton = (ImageButton) findViewById(R.id.searchbutton);
         EditText ourSearchView= (EditText) findViewById(R.id.searchView);
+        // your text box
 
+       ourSearchView.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    searchButton.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         searchButton.setOnClickListener(new Button.OnClickListener() {
             @Override

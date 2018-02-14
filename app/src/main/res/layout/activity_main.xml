@@ -16,6 +16,7 @@
         android:layout_marginTop="4dp"
         android:clickable="true"
         android:focusable="true"
+        android:textColorLink="@color/colorPrimary"
         app:layout_constraintEnd_toStartOf="@+id/searchbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
