@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //defining the loadUrl method ( calls the api for the json data)
     private void loadUrlData(String searchterm) {
-
+        developersLists.clear();
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
@@ -191,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(myRequest);}
 
     private void loadUrlData2(String searchterm){
+        developersLists.clear();
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
@@ -244,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error){
                     // Do something when error occurred
-                    Toast.makeText(MainActivity.this, "Error Response", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Search term not found.", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 }
             }
